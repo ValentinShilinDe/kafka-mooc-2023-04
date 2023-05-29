@@ -53,3 +53,8 @@ libraryDependencies ++= Seq(
 )
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.16"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.16" % "test"
+libraryDependencies += "com.typesafe" % "config" % "1.3.3"
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-stream-kafka" % "4.0.2",
+  "com.typesafe.akka" %% "akka-stream" % akkaVersion
+)
