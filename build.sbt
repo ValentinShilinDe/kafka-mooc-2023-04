@@ -58,3 +58,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream-kafka" % "4.0.2",
   "com.typesafe.akka" %% "akka-stream" % akkaVersion
 )
+libraryDependencies += "dev.zio" %% "zio-kafka"         % "2.3.1"
+libraryDependencies += "dev.zio" %% "zio-kafka-testkit" % "2.3.1" % Test
