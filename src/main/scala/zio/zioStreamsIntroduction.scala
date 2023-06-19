@@ -6,8 +6,9 @@ import zio.stream.ZStream
 import zio.stream._
 import zio._
 
+import java.io.IOException
 import scala.concurrent.TimeoutException
-import scala.sys.process.processInternal.{IOException, URL}
+//import scala.sys.process.processInternal.{IOException, URL}
 
 object zioStreamsIntroduction  extends App{
   val emptyStream         : ZStream[Any, Nothing, Nothing]   = ZStream.empty
@@ -107,8 +108,8 @@ object zioStreamsIntroduction  extends App{
   //It is similar to mapZIO, but will evaluate effects in parallel.
   // It will emit the results downstream in the original order.
   // The n argument specifies the number of concurrent running effects.
-  def fetchUrl(url: URL): Task[String] = ZIO.succeed(???)
-  def getUrls: Task[List[URL]] = ZIO.succeed(???)
+//  def fetchUrl(url: URL): Task[String] = ZIO.succeed(???)
+//  def getUrls: Task[List[URL]] = ZIO.succeed(???)
 
   //mapChunk — Each stream is backed by some Chunks.
   // By using mapChunk we can batch the underlying stream and map every Chunk at once:
@@ -118,7 +119,7 @@ object zioStreamsIntroduction  extends App{
 
   val stream6 = chunked.mapChunks(x => x.tail)
 
-  val pages = ZStream.fromIterableZIO(getUrls).mapZIOPar(8)(fetchUrl)
+ // val pages = ZStream.fromIterableZIO(getUrls).mapZIOPar(8)(fetchUrl)
 
   //Filtering
   val s17 = ZStream.range(1, 11).filter(_ % 2 == 0)

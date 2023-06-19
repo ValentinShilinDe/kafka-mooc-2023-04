@@ -8,10 +8,11 @@ import akka.actor.typed.ActorRef
 import akka.actor.typed.SpawnProtocol
 import akka.actor.typed.{PostStop}
 
-object intro_actors{
-  // 1. functional
+
+object intro_actors {
+  //1 functional
   object behaviour_factory_methods{
-    object Echo{
+    object Echo {
       def apply(): Behavior[String] = Behaviors.setup{ ctx =>
         Behaviors.receiveMessage{
           case msg =>
@@ -22,10 +23,10 @@ object intro_actors{
     }
   }
 
-  //2. OOP
-  object abstract_behaviour {
-    object Echo{
-      def apply(): Behavior[String] = Behaviors.setup{ ctx =>
+  //2 OOP
+  object abtsract_behaviour{
+    object Echo {
+      def apply(): Behavior[String] = Behaviors.setup{ ctx=>
         new Echo(ctx)
       }
     }
@@ -38,5 +39,7 @@ object intro_actors{
     }
 
   }
+
+
 
 }
